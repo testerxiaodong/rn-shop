@@ -1,4 +1,4 @@
-import { Order } from './types/order'
+import { Order } from '../types/order'
 
 export const ORDERS: Order[] = [
   {
@@ -16,6 +16,12 @@ export const ORDERS: Order[] = [
         imagesUrl: ['url1'],
         price: 10.0,
         heroImage: require('../assets/images/i-phone-1.jpg'),
+        maxQuantity: 10,
+        category: {
+          name: 'Category 1',
+          slug: 'category-1',
+          imageUrl: require('../assets/images/category-1.jpg'),
+        },
       },
       {
         id: 2,
@@ -24,6 +30,12 @@ export const ORDERS: Order[] = [
         imagesUrl: ['url2'],
         price: 20.0,
         heroImage: require('../assets/images/head-set-1.jpg'),
+        maxQuantity: 10,
+        category: {
+          name: 'Category 1',
+          slug: 'category-1',
+          imageUrl: require('../assets/images/category-1.jpg'),
+        },
       },
     ],
   },
@@ -42,6 +54,12 @@ export const ORDERS: Order[] = [
         imagesUrl: ['url3'],
         price: 30.0,
         heroImage: require('../assets/images/head-set-1.jpg'),
+        maxQuantity: 10,
+        category: {
+          name: 'Category 1',
+          slug: 'category-1',
+          imageUrl: require('../assets/images/category-1.jpg'),
+        },
       },
       {
         id: 4,
@@ -50,6 +68,12 @@ export const ORDERS: Order[] = [
         imagesUrl: ['url4'],
         price: 40.0,
         heroImage: require('../assets/images/head-set-1.jpg'),
+        maxQuantity: 10,
+        category: {
+          name: 'Category 1',
+          slug: 'category-1',
+          imageUrl: require('../assets/images/category-1.jpg'),
+        },
       },
     ],
   },
@@ -68,6 +92,12 @@ export const ORDERS: Order[] = [
         imagesUrl: ['url5'],
         price: 50.0,
         heroImage: require('../assets/images/head-set-1.jpg'),
+        maxQuantity: 10,
+        category: {
+          name: 'Category 1',
+          slug: 'category-1',
+          imageUrl: require('../assets/images/category-1.jpg'),
+        },
       },
       {
         id: 6,
@@ -76,6 +106,12 @@ export const ORDERS: Order[] = [
         imagesUrl: ['url6'],
         price: 60.0,
         heroImage: require('../assets/images/head-set-1.jpg'),
+        maxQuantity: 10,
+        category: {
+          name: 'Category 1',
+          slug: 'category-1',
+          imageUrl: require('../assets/images/category-1.jpg'),
+        },
       },
     ],
   },
@@ -94,6 +130,12 @@ export const ORDERS: Order[] = [
         imagesUrl: ['url7'],
         price: 70.0,
         heroImage: require('../assets/images/head-set-1.jpg'),
+        maxQuantity: 10,
+        category: {
+          name: 'Category 1',
+          slug: 'category-1',
+          imageUrl: require('../assets/images/category-1.jpg'),
+        },
       },
       {
         id: 8,
@@ -102,6 +144,12 @@ export const ORDERS: Order[] = [
         imagesUrl: ['url8'],
         price: 80.0,
         heroImage: require('../assets/images/head-set-1.jpg'),
+        maxQuantity: 10,
+        category: {
+          name: 'Category 1',
+          slug: 'category-1',
+          imageUrl: require('../assets/images/category-1.jpg'),
+        },
       },
     ],
   },

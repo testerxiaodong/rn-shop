@@ -5,9 +5,9 @@ export type Product = {
   id: number
   title: string
   slug: string
-  imagesUrl: ImageSourcePropType[]
+  imagesUrl: string[]
   price: number
-  heroImage: ImageSourcePropType
+  heroImage: string
   category: Omit<Category, 'products'>
   maxQuantity: number
 }

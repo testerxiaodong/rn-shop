@@ -1,4 +1,4 @@
-import { Product } from './types/product';
+import { Product } from '../types/product'
 
 export const PRODUCTS: Product[] = [
   {
@@ -122,4 +122,4 @@ export const PRODUCTS: Product[] = [
     },
     maxQuantity: 8,
   },
-];
+]

@@ -28,22 +28,6 @@
       "favicon": "./assets/favicon.png"
     },
     "plugins": ["expo-router", "expo-secure-store"],
-    "expo": {
-      "plugins": [
-        [
-          "expo-notifications",
-          {
-            "icon": "./local/assets/notification-icon.png",
-            "color": "#ffffff",
-            "defaultChannel": "default",
-            "sounds": [
-              "./local/assets/notification-sound.wav",
-              "./local/assets/notification-sound-other.wav"
-            ]
-          }
-        ]
-      ]
-    },
     "extra": {
       "router": {
         "origin": false
