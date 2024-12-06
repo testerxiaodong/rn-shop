@@ -82,22 +82,33 @@ export default function Cart() {
   const { mutateAsync: createSupabaseOrderItem } = createOrderItem()
 
   const handleCheckout = async () => {
+    if (items.length === 0) {
+      Alert.alert('Your cart is empty, Go to the shop to buy some items')
+      return
+    }
+
     const totalPrice = parseFloat(getTotalPrice())
 
     try {
+      // 初始化 Stripe PaymentSheet
       await setupStripePaymentSheet(Math.floor(totalPrice * 100))
 
+      // 打开 Stripe Checkout
       const result = await openStripeCheckout()
+      console.log('Stripe Checkout result:', result)
 
       if (!result) {
-        Alert.alert('An error occurred while processing the payment')
+        // 用户取消支付的情况
+        Alert.alert('The payment was canceled.')
         return
       }
 
+      // 支付成功的处理
       await createSupabaseOrder(
         { totalPrice },
         {
           onSuccess: (data) => {
+            // 创建订单项
             createSupabaseOrderItem(
               items.map((item) => ({
                 orderId: data.id,
