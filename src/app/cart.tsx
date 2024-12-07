@@ -12,6 +12,8 @@ import { useCartStore } from '../store/cart-store'
 import { StatusBar } from 'expo-status-bar'
 import { createOrder, createOrderItem } from '../api/api'
 import { openStripeCheckout, setupStripePaymentSheet } from '../lib/stripe'
+import { useState } from 'react'
+import { useToast } from 'react-native-toast-notifications'
 
 type CartItemType = {
   id: number
@@ -80,26 +82,23 @@ export default function Cart() {
 
   const { mutateAsync: createSupabaseOrder } = createOrder()
   const { mutateAsync: createSupabaseOrderItem } = createOrderItem()
-
+  const [isCheckout, setIsCheckout] = useState(false)
+  const toast = useToast()
   const handleCheckout = async () => {
     if (items.length === 0) {
-      Alert.alert('Your cart is empty, Go to the shop to buy some items')
+      Alert.alert('Ther are no items in your cart, Lets go shopping')
       return
     }
-
+    setIsCheckout(true)
     const totalPrice = parseFloat(getTotalPrice())
 
     try {
       // 初始化 Stripe PaymentSheet
       await setupStripePaymentSheet(Math.floor(totalPrice * 100))
 
-      // 打开 Stripe Checkout
+      // 获取用户的最终选择，如果取消或者发生异常，则直接返回
       const result = await openStripeCheckout()
-      console.log('Stripe Checkout result:', result)
-
       if (!result) {
-        // 用户取消支付的情况
-        Alert.alert('The payment was canceled.')
         return
       }
 
@@ -117,7 +116,9 @@ export default function Cart() {
               })),
               {
                 onSuccess: () => {
-                  alert('Order created successfully')
+                  alert(
+                    'Payment complete successfully ,Order created successfully'
+                  )
                   resetCart()
                 },
               }
@@ -126,8 +127,9 @@ export default function Cart() {
         }
       )
     } catch (error) {
-      console.error(error)
       alert('An error occurred while creating the order')
+    } finally {
+      setIsCheckout(false)
     }
   }
 
@@ -152,6 +154,7 @@ export default function Cart() {
       <View style={styles.footer}>
         <Text style={styles.totalText}>Total: ${getTotalPrice()}</Text>
         <TouchableOpacity
+          disabled={isCheckout}
           onPress={handleCheckout}
           style={styles.checkoutButton}
         >

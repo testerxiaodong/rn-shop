@@ -26,10 +26,16 @@ export default function AuthProvider({ children }: PropsWithChildren) {
     const fetchSession = async () => {
       const {
         data: { session },
+        error,
       } = await supabase.auth.getSession()
 
-      setSession(session)
+      if (error) {
+        if (error.message.includes('invalid refresh token')) {
+          alert('Session expired, please log in again.')
+        }
+      }
 
+      setSession(session)
       setMounting(false)
     }
 
