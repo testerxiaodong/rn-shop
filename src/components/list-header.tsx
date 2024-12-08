@@ -60,7 +60,12 @@ export const ListHeader = ({
             onPress={handleSignOut}
             style={styles.signOutButton}
           >
-            <FontAwesome name="sign-out" size={25} color="red" />
+            <FontAwesome
+              testID="signOutButton"
+              name="sign-out"
+              size={25}
+              color="red"
+            />
           </TouchableOpacity>
         </View>
       </View>

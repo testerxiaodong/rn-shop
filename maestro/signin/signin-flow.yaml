@@ -1,0 +1,10 @@
+appId: com.cengdong.rnshop
+---
+- clearState
+- launchApp
+- assertVisible: 'Welcome'
+- assertVisible: 'Please Authenticate to continue'
+- assertVisible: 'Email'
+- assertVisible: 'Password'
+- assertVisible: 'Sign In'
+- assertVisible: 'Sign Up'

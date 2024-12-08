@@ -1,0 +1,9 @@
+appId: com.cengdong.rnshop
+---
+- clearState
+- launchApp
+- runFlow: ../signin/signin-success-flow.yaml
+- tapOn:
+    id: signOutButton
+- assertVisible: Sign In
+- assertVisible: Sign Up

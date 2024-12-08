@@ -1,0 +1,11 @@
+appId: com.cengdong.rnshop
+---
+- clearState
+- launchApp
+- runFlow: signup-flow.yaml
+- tapOn: 'Email'
+- inputText: 'test@test.com'
+- tapOn: 'Password'
+- inputText: '111111'
+- tapOn: 'Sign Up'
+- assertVisible: 'User already registered'

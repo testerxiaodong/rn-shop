@@ -1,0 +1,8 @@
+appId: com.cengdong.rnshop
+---
+- clearState
+- launchApp
+- runFlow: signup-flow.yaml
+- tapOn: Sign Up
+- assertVisible: Invalid email address
+- assertVisible: Password must be at least 6 characters long

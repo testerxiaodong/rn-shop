@@ -26,7 +26,9 @@ const Category = () => {
     <View style={styles.container}>
       <Stack.Screen options={{ title: category.name }} />
       <Image source={{ uri: category.imageUrl }} style={styles.categoryImage} />
-      <Text style={styles.categoryName}>{category.name}</Text>
+      <Text style={styles.categoryName} testID="categoryName">
+        {category.name}
+      </Text>
       <FlatList
         data={products}
         keyExtractor={(item) => item.id.toString()}

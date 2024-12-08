@@ -21,29 +21,12 @@
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "com.cengdong.rnshop",
-      "googleServicesFile": "./android/app/google-services.json"
+      "package": "com.cengdong.rnshop"
     },
     "web": {
       "favicon": "./assets/favicon.png"
     },
-    "plugins": [
-      "expo-router",
-      "expo-secure-store",
-      [
-        "expo-notifications",
-        {
-          "icon": "./local/assets/notification_icon.png",
-          "color": "#ffffff",
-          "defaultChannel": "default",
-          "sounds": [
-            "./local/assets/notification_sound.wav",
-            "./local/assets/notification_sound_other.wav"
-          ],
-          "enableBackgroundRemoteNotifications": false
-        }
-      ]
-    ],
+    "plugins": ["expo-router", "expo-secure-store"],
     "extra": {
       "router": {
         "origin": false
