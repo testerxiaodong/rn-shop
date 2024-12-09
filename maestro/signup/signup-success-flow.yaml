@@ -1,8 +1,6 @@
 appId: com.cengdong.rnshop
 ---
 - runScript: ../lib/generateEmail.js
-- clearState
-- launchApp
 - runFlow: signup-flow.yaml
 - tapOn: 'Email'
 - inputText: ${output.signup.email}

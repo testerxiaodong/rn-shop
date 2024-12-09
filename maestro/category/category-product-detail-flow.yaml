@@ -1,0 +1,31 @@
+appId: com.cengdong.rnshop
+---
+- runScript: ../lib/getRandomCategoryAndProduct.js
+- runFlow: ../signin/signin-success-flow.yaml
+- assertVisible: Categories
+- tapOn: ${output.category.randomCategory.name}
+- assertVisible:
+    id: 'categoryName'
+# 滚动直到产品名称可见
+- repeat:
+    while:
+      notVisible: ${output.category.randomProduct.name}
+    commands:
+      - swipe:
+          start: 50%, 90%
+          end: 50%, 50%
+      # 产品名称可见
+      - assertVisible: ${output.category.randomProduct.name}
+# 点击产品名称，查看产品详情
+- tapOn: ${output.category.randomProduct.name}
+- assertVisible:
+    id: 'productTitle'
+    text: ${output.category.productTitleText}
+- assertVisible:
+    id: 'productSlug'
+    text: ${output.category.productSlugText}
+- assertVisible:
+    id: 'productPrice'
+    text: ${output.category.productPriceText}
+- assertVisible:
+    id: 'totalPrice'

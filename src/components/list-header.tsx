@@ -38,7 +38,12 @@ export const ListHeader = ({
           </View>
         </View>
         <View style={styles.headerRight}>
-          <Link style={styles.cartContainer} href="/cart" asChild>
+          <Link
+            style={styles.cartContainer}
+            href="/cart"
+            asChild
+            testID="cartButton"
+          >
             <Pressable>
               {({ pressed }) => (
                 <View>
@@ -59,13 +64,9 @@ export const ListHeader = ({
           <TouchableOpacity
             onPress={handleSignOut}
             style={styles.signOutButton}
+            testID="signOutButton"
           >
-            <FontAwesome
-              testID="signOutButton"
-              name="sign-out"
-              size={25}
-              color="red"
-            />
+            <FontAwesome name="sign-out" size={25} color="red" />
           </TouchableOpacity>
         </View>
       </View>

@@ -1,0 +1,8 @@
+appId: com.cengdong.rnshop
+---
+- runFlow: ./cart-flow.yaml
+- tapOn:
+    id: checkoutButton
+- assertVisible:
+    id: com.cengdong.rnshop:id/alertTitle
+    text: Ther are no items in your cart, Lets go shopping

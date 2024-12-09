@@ -7,7 +7,7 @@ import {
   Text,
   View,
 } from 'react-native'
-import { Link, Stack } from 'expo-router'
+import { Link } from 'expo-router'
 import { format } from 'date-fns'
 
 import { Tables } from '../../../types/database.types'
@@ -57,7 +57,6 @@ const Orders = () => {
 
   return (
     <View style={styles.container}>
-      <Stack.Screen options={{ title: 'Orders' }} />
       <FlatList
         data={orders}
         keyExtractor={(item) => item.id.toString()}

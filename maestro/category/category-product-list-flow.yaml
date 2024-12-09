@@ -1,0 +1,25 @@
+appId: com.cengdong.rnshop
+---
+- runScript: ../lib/getRandomCategoryAndProduct.js
+- runFlow: ../signin/signin-success-flow.yaml
+- assertVisible: Categories
+- tapOn: ${output.category.randomCategory.name}
+- assertVisible:
+    id: 'categoryName'
+- evalScript: ${output.counter = 0}
+- repeat:
+    while:
+      # 分类产品循环
+      true: ${output.counter < output.category.randomCategory.products.length}
+    commands:
+      - repeat:
+          while:
+            notVisible: ${output.category.randomCategory.products[output.counter].name}
+          commands:
+            - swipe:
+                start: 50%, 90%
+                end: 50%, 50%
+            # 产品名称可见
+            - assertVisible: ${output.category.randomCategory.products[output.counter].name}
+      # 循环变量自增
+      - evalScript: ${output.counter = output.counter + 1}

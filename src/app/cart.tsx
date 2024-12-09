@@ -13,7 +13,6 @@ import { StatusBar } from 'expo-status-bar'
 import { createOrder, createOrderItem } from '../api/api'
 import { openStripeCheckout, setupStripePaymentSheet } from '../lib/stripe'
 import { useState } from 'react'
-import { useToast } from 'react-native-toast-notifications'
 
 type CartItemType = {
   id: number
@@ -83,7 +82,6 @@ export default function Cart() {
   const { mutateAsync: createSupabaseOrder } = createOrder()
   const { mutateAsync: createSupabaseOrderItem } = createOrderItem()
   const [isCheckout, setIsCheckout] = useState(false)
-  const toast = useToast()
   const handleCheckout = async () => {
     if (items.length === 0) {
       Alert.alert('Ther are no items in your cart, Lets go shopping')
@@ -152,11 +150,14 @@ export default function Cart() {
       />
 
       <View style={styles.footer}>
-        <Text style={styles.totalText}>Total: ${getTotalPrice()}</Text>
+        <Text style={styles.totalText} testID="totalPrice">
+          Total: ${getTotalPrice()}
+        </Text>
         <TouchableOpacity
           disabled={isCheckout}
           onPress={handleCheckout}
           style={styles.checkoutButton}
+          testID="checkoutButton"
         >
           <Text style={styles.checkoutButtonText}>Checkout</Text>
         </TouchableOpacity>

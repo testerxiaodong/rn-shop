@@ -1,7 +1,5 @@
 appId: com.cengdong.rnshop
 ---
-- clearState
-- launchApp
 - runFlow: signin-flow.yaml
 - tapOn: Sign In
 - assertVisible: Invalid email address

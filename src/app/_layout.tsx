@@ -55,6 +55,7 @@ export default function RootLayout() {
                   options={{
                     presentation: 'modal',
                     title: 'Shopping Cart',
+                    headerTitleAlign: 'center',
                   }}
                 />
                 <Stack.Screen name="auth" options={{ headerShown: false }} />

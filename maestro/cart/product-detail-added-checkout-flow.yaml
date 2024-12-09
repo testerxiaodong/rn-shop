@@ -1,0 +1,10 @@
+appId: com.cengdong.rnshop
+---
+- runFlow: ../product/product-detail-flow.yaml
+- tapOn:
+    id: checkoutButton
+- tapOn:
+    id: 'com.cengdong.rnshop:id/primary_button'
+- assertVisible:
+    id: 'android:id/message'
+    text: 'Payment complete successfully ,Order created successfully'

@@ -1,0 +1,42 @@
+appId: com.cengdong.rnshop
+---
+- runScript: ../lib/getRandomProduct.js
+- runFlow: ../signin/signin-success-flow.yaml
+- scrollUntilVisible:
+    element:
+      text: ${output.product.randomProduct.name}
+    direction: DOWN
+- tapOn: ${output.product.randomProduct.name}
+- assertVisible:
+    id: 'productTitle'
+    text: ${output.product.productTitleText}
+- assertVisible:
+    id: 'productSlug'
+    text: ${output.product.productSlugText}
+- assertVisible:
+    id: 'productPrice'
+    text: ${output.product.productPriceText}
+- assertVisible:
+    id: 'totalPrice'
+- repeat:
+    times: ${output.product.buyCount}
+    commands:
+      - tapOn: +
+- assertVisible:
+    id: totalPrice
+    text: ${output.product.detailTotalPriceText}
+- tapOn: Add to cart
+- assertVisible: Added to cart
+- tapOn:
+    id: backButton
+- scrollUntilVisible:
+    element:
+      id: cartButton
+    direction: UP
+- tapOn:
+    id: cartButton
+- assertVisible:
+    text: ${output.product.randomProduct.name}
+- assertVisible:
+    id: totalPrice
+    text: ${output.product.cartTotalPriceText}

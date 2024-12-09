@@ -1,0 +1,22 @@
+appId: com.cengdong.rnshop
+---
+- runScript: ../lib/orderDetails.js
+- runFlow: ./order-list-flow.yaml
+- scrollUntilVisible:
+    element:
+      text: ${output.orderDetails.orderSlug}
+- tapOn:
+    text: ${output.orderDetails.orderSlug}
+- assertVisible:
+    id: orderSlug
+    text: ${output.orderDetails.orderSlug}
+- assertVisible:
+    id: orderStatus
+    text: ${output.orderDetails.orderStatus}
+- assertVisible:
+    id: orderDate
+    text: ${output.orderDetails.orderDate}
+- assertVisible:
+    text: ${output.orderDetails.itemName}
+- assertVisible:
+    text: ${output.orderDetails.itemPrice}

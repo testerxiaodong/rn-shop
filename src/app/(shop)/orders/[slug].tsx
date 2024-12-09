@@ -34,12 +34,16 @@ const OrderDetails = () => {
     <View style={styles.container}>
       <Stack.Screen options={{ title: `${order.slug}` }} />
 
-      <Text style={styles.item}>{order.slug}</Text>
+      <Text style={styles.item} testID="orderSlug">
+        {order.slug}
+      </Text>
       <Text style={styles.details}>{order.description}</Text>
       <View style={[styles.statusBadge, styles[`statusBadge_${order.status}`]]}>
-        <Text style={styles.statusText}>{order.status}</Text>
+        <Text style={styles.statusText} testID="orderStatus">
+          {order.status}
+        </Text>
       </View>
-      <Text style={styles.date}>
+      <Text style={styles.date} testID="orderDate">
         {format(new Date(order.created_at), 'MMM dd, yyyy')}
       </Text>
       <Text style={styles.itemsTitle}>Items Ordered:</Text>
@@ -51,7 +55,9 @@ const OrderDetails = () => {
             <Image source={{ uri: item.heroImage }} style={styles.heroImage} />
             <View style={styles.itemInfo}>
               <Text style={styles.itemName}>{item.title}</Text>
-              <Text style={styles.itemPrice}>Price: ${item.price}</Text>
+              <Text style={styles.itemPrice}>
+                Price: ${item.price.toFixed(2)}
+              </Text>
             </View>
           </View>
         )}

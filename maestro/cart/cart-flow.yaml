@@ -1,0 +1,9 @@
+appId: com.cengdong.rnshop
+---
+- runFlow: ../signin/signin-success-flow.yaml
+- tapOn:
+    id: cartButton
+- assertVisible:
+    id: totalPrice
+- assertVisible:
+    text: Checkout

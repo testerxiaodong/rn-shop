@@ -64,7 +64,7 @@ const ProductDetails = () => {
     toast.show('Added to cart', {
       type: 'success',
       placement: 'top',
-      duration: 1500,
+      duration: 2000,
     })
   }
 
@@ -77,13 +77,19 @@ const ProductDetails = () => {
       <Image source={{ uri: product.heroImage }} style={styles.heroImage} />
 
       <View style={{ padding: 16, flex: 1 }}>
-        <Text style={styles.title}>Title: {product.title}</Text>
-        <Text style={styles.slug}>Slug: {product.slug}</Text>
+        <Text style={styles.title} testID="productTitle">
+          Title: {product.title}
+        </Text>
+        <Text style={styles.slug} testID="productSlug">
+          Slug: {product.slug}
+        </Text>
         <View style={styles.priceContainer}>
-          <Text style={styles.price}>
+          <Text style={styles.price} testID="productPrice">
             Unit Price: ${product.price.toFixed(2)}
           </Text>
-          <Text style={styles.price}>Total Price: ${totalPrice}</Text>
+          <Text style={styles.price} testID="totalPrice">
+            Total Price: ${totalPrice}
+          </Text>
         </View>
 
         <FlatList
