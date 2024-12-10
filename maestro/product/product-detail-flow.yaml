@@ -2,10 +2,12 @@ appId: com.cengdong.rnshop
 ---
 - runScript: ../lib/getRandomProduct.js
 - runFlow: ../signin/signin-success-flow.yaml
+# 滚动到产品名称可见
 - scrollUntilVisible:
     element:
       text: ${output.product.randomProduct.name}
     direction: DOWN
+# 查看产品详情
 - tapOn: ${output.product.randomProduct.name}
 - assertVisible:
     id: 'productTitle'
@@ -18,15 +20,18 @@ appId: com.cengdong.rnshop
     text: ${output.product.productPriceText}
 - assertVisible:
     id: 'totalPrice'
+# 增加需要购买的数量
 - repeat:
     times: ${output.product.buyCount}
     commands:
-      - tapOn: +
+      - tapOn:
+          id: increaseQuantityButton
 - assertVisible:
     id: totalPrice
     text: ${output.product.detailTotalPriceText}
 - tapOn: Add to cart
 - assertVisible: Added to cart
+# 返回首页
 - tapOn:
     id: backButton
 - scrollUntilVisible:

@@ -1,7 +1,7 @@
 output.orderDetails = {
-  orderSlug: 'order-17wV-1733568564384',
+  orderSlug: 'order-0p8u-1733845185279',
   orderStatus: 'Pending',
-  orderDate: 'Dec 07, 2024',
-  itemName: 'Iphone 16',
-  itemPrice: 'Price: $799.00',
+  orderDate: 'Dec 10, 2024',
+  itemName: 'Airpod Pro2',
+  itemPrice: 'Price: $249.00',
 }

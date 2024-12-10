@@ -17,7 +17,8 @@ appId: com.cengdong.rnshop
 - repeat:
     times: ${output.category.buyCount}
     commands:
-      - tapOn: +
+      - tapOn:
+          id: increaseQuantityButton
 - assertVisible:
     id: totalPrice
     text: ${output.category.detailTotalPriceText}

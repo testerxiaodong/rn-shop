@@ -108,6 +108,7 @@ const ProductDetails = () => {
             style={styles.quantityButton}
             onPress={decreaseQuantity}
             disabled={quantity <= 1}
+            testID="decreaseQuantityButton"
           >
             <Text style={styles.quantityButtonText}>-</Text>
           </TouchableOpacity>
@@ -118,6 +119,7 @@ const ProductDetails = () => {
             style={styles.quantityButton}
             onPress={increaseQuantity}
             disabled={quantity >= product.maxQuantity}
+            testID="increaseQuantityButton"
           >
             <Text style={styles.quantityButtonText}>+</Text>
           </TouchableOpacity>
